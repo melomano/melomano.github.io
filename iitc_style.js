@@ -1,0 +1,1 @@
+document.getElementById('chatcontrols').style.display = 'none';

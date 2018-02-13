@@ -31,7 +31,10 @@ function wrapper(plugin_info) {
 
   // The entry point for this plugin.
   function setup() {
-    document.getElementById('chatcontrols').style.display = 'none';
+    if (document.getElementById('chatcontrols')) {
+      alert('aaa');
+      document.getElementById('chatcontrols').style.display = 'none';
+    }
     
     window.addHook('portalDetailLoaded', loadData);
 

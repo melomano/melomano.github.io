@@ -55,7 +55,12 @@ function wrapper(plugin_info) {
       document.querySelector('#portaldetails .linkdetails').appendChild(asideEl);
 
       aEl.addEventListener('touchend', function() {
-        alert('lat: '+lat+' lng: '+lng);
+        var xy = {
+          x: lng,
+          y: lat
+        };
+
+        window.postMessage(JSON.stringify(xy));
       });
     }
   }

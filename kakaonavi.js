@@ -32,11 +32,10 @@ function wrapper(plugin_info) {
   // The entry point for this plugin.
   function setup() {
     setTimeout(function() {
-      if (document.getElementById('chatcontrols')) {
-        alert('aaa');
-        document.getElementById('chatcontrols').style.display = 'none';
-      }
-    }, 1000);
+      document.getElementById('chatcontrols').style.display = 'none';
+      document.getElementById('chat').style.display = 'none';
+      document.getElementById('chatinput').style.display = 'none';
+    }, 300);
     
     window.addHook('portalDetailLoaded', loadData);
 

@@ -31,12 +31,14 @@ function wrapper(plugin_info) {
 
   // The entry point for this plugin.
   function setup() {
+    
+
     setTimeout(function() {
       document.getElementById('chatcontrols').style.display = 'none';
       document.getElementById('chat').style.display = 'none';
       document.getElementById('chatinput').style.display = 'none';
     }, 300);
-    
+
     window.addHook('portalDetailLoaded', loadData);
 
     function loadData(data) {
@@ -53,19 +55,8 @@ function wrapper(plugin_info) {
       document.querySelector('#portaldetails .linkdetails').appendChild(asideEl);
 
       aEl.addEventListener('touchend', function() {
-        navi();
+        alert('lat: '+lat+' lng: '+lng);
       });
-
-      Kakao.init('4404f1315c5f1d01a322b5a2fad6e155');
-
-      function navi(){
-          Kakao.Navi.start({
-              name: data.details.title,
-              x: lng,
-              y: lat,
-              coordType: 'wgs84'
-          });
-      }
     }
   }
 
@@ -79,12 +70,6 @@ function wrapper(plugin_info) {
   // If IITC has already booted, immediately run the 'setup' function
   if (window.iitcLoaded && typeof setup === 'function') setup();
 }
-
-// <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
-var scriptKakao = document.createElement('script');
-
-scriptKakao.setAttribute('src', '//developers.kakao.com/sdk/js/kakao.min.js');
-(document.body || document.head || document.documentElement).appendChild(scriptKakao);
 
 // Create a script element to hold our content script
 var script = document.createElement('script');

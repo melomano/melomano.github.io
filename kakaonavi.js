@@ -55,12 +55,12 @@ function wrapper(plugin_info) {
       document.querySelector('#portaldetails .linkdetails').appendChild(asideEl);
 
       aEl.addEventListener('touchend', function() {
-        var xy = {
-          x: lng,
-          y: lat
+        var LngLat = {
+          lng: lng,
+          lat: lat
         };
 
-        window.postMessage(JSON.stringify(xy));
+        window.postMessage(JSON.stringify(LngLat));
       });
     }
   }

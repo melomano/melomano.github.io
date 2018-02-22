@@ -41,13 +41,13 @@ function wrapper(plugin_info) {
 
     window.addHook('portalDetailLoaded', loadData);
 
-    function loadData(data) {alert(JSON.stringify(data));
+    function loadData(data) {
       var lat = data.details.latE6/1E6;
       var lng = data.details.lngE6/1E6;
       var asideEl = document.createElement('aside');
       var aEl = document.createElement('a');
       var textNode = document.createTextNode('TMap');
-      var LatLng;
+      var portalInfo;
 
       aEl.appendChild(textNode);
       aEl.setAttribute('data-lat', lat);
@@ -56,12 +56,13 @@ function wrapper(plugin_info) {
       document.querySelector('#portaldetails .linkdetails').appendChild(asideEl);
 
       aEl.addEventListener('touchend', function() {
-        LatLng = {
+        portalInfo = {
+          name: data.details.title,
           lat: lat,
           lng: lng
         };
 
-        window.postMessage(JSON.stringify(LatLng));
+        window.postMessage(JSON.stringify(portalInfo));
       });
     }
   }

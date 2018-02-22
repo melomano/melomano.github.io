@@ -61,7 +61,7 @@ function wrapper(plugin_info) {
           lng: lng
         };
 
-        //window.postMessage(JSON.stringify(LatLng));
+        window.postMessage(JSON.stringify(LatLng));
       });
     }
   }

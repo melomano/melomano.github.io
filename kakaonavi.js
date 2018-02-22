@@ -47,7 +47,6 @@ function wrapper(plugin_info) {
       var asideEl = document.createElement('aside');
       var aEl = document.createElement('a');
       var textNode = document.createTextNode('Kakao Navi');
-      var LatLng;
 
       aEl.appendChild(textNode);
       aEl.setAttribute('data-lat', lat);
@@ -56,12 +55,12 @@ function wrapper(plugin_info) {
       document.querySelector('#portaldetails .linkdetails').appendChild(asideEl);
 
       aEl.addEventListener('touchend', function() {
-        LatLng = {
+        var LngLat = {
           lat: lat,
           lng: lng
-        };
+        };alert(JSON.stringify(LngLat));
 
-        window.postMessage(JSON.stringify(LatLng));
+        window.postMessage(JSON.stringify(LngLat));
       });
     }
   }

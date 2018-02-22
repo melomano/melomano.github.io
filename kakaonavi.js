@@ -58,7 +58,7 @@ function wrapper(plugin_info) {
         var LngLat = {
           lat: lat,
           lng: lng
-        };alert(JSON.stringify(LngLat));
+        };
 
         window.postMessage(JSON.stringify(LngLat));
       });

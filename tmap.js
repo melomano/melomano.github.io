@@ -41,7 +41,7 @@ function wrapper(plugin_info) {
 
     window.addHook('portalDetailLoaded', loadData);
 
-    function loadData(data) {
+    function loadData(data) {alert(JSON.stringify(data));
       var lat = data.details.latE6/1E6;
       var lng = data.details.lngE6/1E6;
       var asideEl = document.createElement('aside');

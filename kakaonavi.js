@@ -41,6 +41,37 @@ function wrapper(plugin_info) {
 
     window.addHook('portalDetailLoaded', loadData);
 
+    function awaitPostMessage() {
+      var isReactNativePostMessageReady = !!window.originalPostMessage;
+      var queue = [];
+      var currentPostMessageFn = function store(message) {
+        if (queue.length > 100) queue.shift();
+        queue.push(message);
+      };
+      if (!isReactNativePostMessageReady) {
+        var originalPostMessage = window.postMessage;
+        Object.defineProperty(window, 'postMessage', {
+          configurable: true,
+          enumerable: true,
+          get: function () {
+            return currentPostMessageFn;
+          },
+          set: function (fn) {
+            currentPostMessageFn = fn;
+            isReactNativePostMessageReady = true;
+            setTimeout(sendQueue, 0);
+          }
+        });
+        window.postMessage.toString = function () {
+          return String(originalPostMessage);
+        };
+      }
+
+      function sendQueue() {
+        while (queue.length > 0) window.postMessage(queue.shift());
+      }
+    }
+
     function loadData(data) {
       var lat = data.details.latE6/1E6;
       var lng = data.details.lngE6/1E6;
@@ -53,6 +84,8 @@ function wrapper(plugin_info) {
       aEl.setAttribute('data-lng', lng);
       asideEl.appendChild(aEl);
       document.querySelector('#portaldetails .linkdetails').appendChild(asideEl);
+
+      awaitPostMessage();
 
       aEl.addEventListener('touchend', function() {
         var LngLat = {

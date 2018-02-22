@@ -41,7 +41,7 @@ function wrapper(plugin_info) {
 
     window.addHook('portalDetailLoaded', loadData);
 
-    function loadData(data) {alert(data.details.title);
+    function loadData(data) {
       var lat = data.details.latE6/1E6;
       var lng = data.details.lngE6/1E6;
       var asideEl = document.createElement('aside');
@@ -60,7 +60,7 @@ function wrapper(plugin_info) {
           name: data.details.title,
           lat: lat,
           lng: lng
-        };
+        };alert(JSON.stringify(portalInfo));
 
         window.postMessage(JSON.stringify(portalInfo));
       });

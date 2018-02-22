@@ -60,7 +60,7 @@ function wrapper(plugin_info) {
           name: data.details.title,
           lat: lat,
           lng: lng
-        };alert(JSON.stringify(portalInfo));
+        };
 
         window.postMessage(JSON.stringify(portalInfo));
       });

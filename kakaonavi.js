@@ -56,8 +56,8 @@ function wrapper(plugin_info) {
 
       aEl.addEventListener('touchend', function() {
         var LngLat = {
-          lng: lng,
-          lat: lat
+          lat: lat,
+          lng: lng
         };
 
         window.postMessage(JSON.stringify(LngLat));

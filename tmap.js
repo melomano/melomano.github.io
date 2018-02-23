@@ -52,7 +52,9 @@ function wrapper(plugin_info) {
       aEl.appendChild(textNode);
       aEl.setAttribute('data-lat', lat);
       aEl.setAttribute('data-lng', lng);
-      aEl.style.fontSize = '16px';
+      aEl.style.fontSize = '32px';
+      divEl.style.textAlign = 'center';
+      divEl.style.padding = '10px';
       divEl.appendChild(aEl);
       document.getElementById('sidebar').appendChild(divEl);
 

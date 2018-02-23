@@ -44,7 +44,7 @@ function wrapper(plugin_info) {
     function loadData(data) {
       var lat = data.details.latE6/1E6;
       var lng = data.details.lngE6/1E6;
-      var asideEl = document.createElement('aside');
+      var divEl = document.createElement('div');
       var aEl = document.createElement('a');
       var textNode = document.createTextNode('TMap');
       var portalInfo;
@@ -52,8 +52,9 @@ function wrapper(plugin_info) {
       aEl.appendChild(textNode);
       aEl.setAttribute('data-lat', lat);
       aEl.setAttribute('data-lng', lng);
-      asideEl.appendChild(aEl);
-      document.querySelector('#portaldetails .linkdetails').appendChild(asideEl);
+      aEl.style.fontSize = '16px';
+      divEl.appendChild(aEl);
+      document.getElementById('sidebar').appendChild(divEl);
 
       aEl.addEventListener('touchend', function() {
         portalInfo = {

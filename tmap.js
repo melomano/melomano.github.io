@@ -29,8 +29,6 @@ function wrapper(plugin_info) {
   // ID/name of the plugin
   plugin_info.pluginId = 'TMap';
 
-  map.setView([36,128], 8);
-
   // The entry point for this plugin.
   function setup() {
     setTimeout(function() {
@@ -43,6 +41,8 @@ function wrapper(plugin_info) {
     window.addHook('portalDetailLoaded', loadData);
 
     function loadData(data) {
+      map.setView([36,128], 8);
+
       var lat = data.details.latE6/1E6;
       var lng = data.details.lngE6/1E6;
       var divEl = document.createElement('div');

@@ -700,8 +700,8 @@ window.setupMap = function() {
 
   // proper initial position is now delayed until all plugins are loaded and the base layer is set
   window.map = new L.Map('map', {
-    center: [0,0],
-    zoom: 1,
+    center: [36,128],
+    zoom: 8,
     zoomControl: (typeof android !== 'undefined' && android && android.showZoom) ? android.showZoom() : true,
     minZoom: MIN_ZOOM,
 //    zoomAnimation: false,

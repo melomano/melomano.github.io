@@ -43,6 +43,8 @@ function wrapper(plugin_info) {
     window.addHook('portalDetailLoaded', loadData);
 
     function loadData(data) {
+      if (document.getElementById('tmap')) {return;}
+      
       var lat = data.details.latE6/1E6;
       var lng = data.details.lngE6/1E6;
       var divEl = document.createElement('div');
@@ -54,6 +56,7 @@ function wrapper(plugin_info) {
       aEl.setAttribute('data-lat', lat);
       aEl.setAttribute('data-lng', lng);
       aEl.style.fontSize = '32px';
+      divEl.id = 'tmap';
       divEl.style.textAlign = 'center';
       divEl.style.padding = '10px';
       divEl.appendChild(aEl);

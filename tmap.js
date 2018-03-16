@@ -37,6 +37,7 @@ function wrapper(plugin_info) {
       document.getElementById('chatcontrols').style.display = 'none';
       document.getElementById('chat').style.display = 'none';
       document.getElementById('chatinput').style.display = 'none';
+      document.querySelector('.leaflet-top.leaflet-right').style.display = 'none';
     }, 300);
 
     window.addHook('portalDetailLoaded', loadData);

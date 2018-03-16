@@ -29,10 +29,10 @@ function wrapper(plugin_info) {
   // ID/name of the plugin
   plugin_info.pluginId = 'TMap';
 
+  map.setView([36,128], 8);
+
   // The entry point for this plugin.
   function setup() {
-    map.setView([36,128], 7);
-
     setTimeout(function() {
       document.getElementById('chatcontrols').style.display = 'none';
       document.getElementById('chat').style.display = 'none';

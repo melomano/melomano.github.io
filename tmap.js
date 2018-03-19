@@ -31,7 +31,7 @@ function wrapper(plugin_info) {
 
   // The entry point for this plugin.
   function setup() {
-    map.setView([36,128], 8);
+    map.setView([36,128], 7);
 
     setTimeout(function() {
       document.getElementById('chatcontrols').style.display = 'none';

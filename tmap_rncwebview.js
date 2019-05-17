@@ -40,9 +40,10 @@ function wrapper(plugin_info) {
 
     window.addHook('portalDetailLoaded', loadData);
 
-    function loadData(data) {alert(JSON.stringify(data));
+    function loadData(portalData) {
       if (document.getElementById('tmap')) {return;}
       
+      var data = portalData;
       var lat = data.details.latE6/1E6;
       var lng = data.details.lngE6/1E6;
       var divEl = document.createElement('div');
@@ -66,8 +67,10 @@ function wrapper(plugin_info) {
           lat: lat,
           lng: lng
         };
+        alert('tmap.js --- ' + JSON.stringify(portalInfo));
 
         window.ReactNativeWebView.postMessage(JSON.stringify(portalInfo));
+        data = null;
       });
     }
   }

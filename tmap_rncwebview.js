@@ -65,7 +65,7 @@ function wrapper(plugin_info) {
           name: data.details.title,
           lat: lat,
           lng: lng
-        };
+        };alert('tmap.js' + JSON.stringify(portalInfo));
 
         window.ReactNativeWebView.postMessage(JSON.stringify(portalInfo));
       });

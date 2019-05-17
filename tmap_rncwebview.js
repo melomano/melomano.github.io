@@ -67,7 +67,7 @@ function wrapper(plugin_info) {
           lng: lng
         };
 
-        window.postMessage(JSON.stringify(portalInfo));
+        window.ReactNativeWebView.postMessage(JSON.stringify(portalInfo));
       });
     }
   }

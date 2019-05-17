@@ -41,7 +41,11 @@ function wrapper(plugin_info) {
     window.addHook('portalDetailLoaded', loadData);
 
     function loadData(data) {
-      if (document.getElementById('tmap')) {return;}
+      var sidebarEl = document.getElementById('sidebar');
+
+      if (document.getElementById('tmap')) {
+        sidebarEl.removeChild(document.getElementById('tmap'));
+      }
       
       var lat = data.details.latE6/1E6;
       var lng = data.details.lngE6/1E6;
@@ -58,7 +62,7 @@ function wrapper(plugin_info) {
       divEl.style.textAlign = 'center';
       divEl.style.padding = '10px';
       divEl.appendChild(aEl);
-      document.getElementById('sidebar').appendChild(divEl);
+      sidebarEl.appendChild(divEl);
 
       aEl.addEventListener('touchend', function() {
         portalInfo = {

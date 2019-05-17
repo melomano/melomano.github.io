@@ -70,7 +70,6 @@ function wrapper(plugin_info) {
           lat: lat,
           lng: lng
         };
-        alert('tmap.js --- ' + JSON.stringify(portalInfo));
 
         window.ReactNativeWebView.postMessage(JSON.stringify(portalInfo));
       });
